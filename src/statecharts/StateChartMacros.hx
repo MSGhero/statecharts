@@ -7,8 +7,8 @@ using haxe.macro.ExprTools;
 using StringTools;
 
 class StateChartMacros {
-    macro public static function createChartFromXml( ethis : Expr, args:Array<Expr> ) {
-        var xml:Xml = Xml.parse(args[0].getValue());
+    macro public static function createChartFromXml( ethis : Expr, path : String ) {
+        var xml:Xml = Xml.parse(sys.io.File.getContent(path));
         var states = [];
         var hierarchy = [];
         var transitions = [];
